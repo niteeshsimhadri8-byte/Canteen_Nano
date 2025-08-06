@@ -12,12 +12,12 @@ const AdminDashboard: React.FC = () => {
     currentAdmin, 
     logout, 
     updateMenuItemAvailability,
-    updateLastModified,
-    lastUpdated 
+    loading,
+    error,
+    deleteMenuItem
   } = useApp();
   const navigate = useNavigate();
   const [showAddForm, setShowAddForm] = useState(false);
-  const [hasChanges, setHasChanges] = useState(false);
 
   const stats = useMemo(() => {
     const total = menuItems.length;
@@ -42,13 +42,24 @@ const AdminDashboard: React.FC = () => {
 
   const handleToggleItem = (id: string, available: boolean) => {
     updateMenuItemAvailability(id, available);
-    setHasChanges(true);
   };
 
-  const handleSaveChanges = () => {
-    updateLastModified();
-    setHasChanges(false);
+  const handleDeleteItem = (id: string) => {
+    if (confirm('Are you sure you want to delete this item?')) {
+      deleteMenuItem(id);
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -67,15 +78,6 @@ const AdminDashboard: React.FC = () => {
                 <Home className="h-4 w-4 mr-2" />
                 View Homepage
               </Link>
-              {hasChanges && (
-                <button
-                  onClick={handleSaveChanges}
-                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors flex items-center"
-                >
-                  <Save className="h-4 w-4 mr-2" />
-                  Save Changes
-                </button>
-              )}
               <button
                 onClick={() => setShowAddForm(true)}
                 className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center"
@@ -131,15 +133,21 @@ const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Last Updated */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
+        {/* Real-time Status */}
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
           <div className="flex items-center text-blue-800">
             <Clock className="h-5 w-5 mr-2" />
             <span className="text-sm">
-              Menu last updated: {new Date(lastUpdated).toLocaleString()}
+              Real-time database connection active - changes sync instantly
             </span>
           </div>
         </div>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+            <p className="text-red-800">Error: {error}</p>
+          </div>
+        )}
 
         {/* Menu Items */}
         <div className="bg-white rounded-lg shadow-sm p-6">

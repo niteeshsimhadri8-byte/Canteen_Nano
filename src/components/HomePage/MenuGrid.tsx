@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { useApp } from '../../context/AppContext';
 import MenuCard from './MenuCard';
-import { Clock } from 'lucide-react';
+import { Clock, Loader2 } from 'lucide-react';
 
 const MenuGrid: React.FC = () => {
-  const { menuItems, lastUpdated } = useApp();
+  const { menuItems, loading, error } = useApp();
 
   const availableItems = useMemo(() => 
     menuItems.filter(item => item.available),
@@ -19,13 +19,37 @@ const MenuGrid: React.FC = () => {
     }));
   }, [availableItems]);
 
+  if (loading) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex items-center justify-center py-12">
+          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+          <span className="ml-2 text-gray-600">Loading menu...</span>
+        </div>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center py-12">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-8">
+            <h3 className="text-xl font-semibold text-red-800 mb-2">Error Loading Menu</h3>
+            <p className="text-red-600">{error}</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Available Menu</h2>
         <div className="flex items-center justify-center text-sm text-gray-600 bg-blue-50 rounded-lg px-4 py-2 inline-flex">
           <Clock className="h-4 w-4 mr-2" />
-          Last updated: {new Date(lastUpdated).toLocaleString()}
+          Real-time updates from database
         </div>
       </div>
 

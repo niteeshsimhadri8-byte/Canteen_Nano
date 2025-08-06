@@ -4,7 +4,20 @@ import { Link } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 
 const Header: React.FC = () => {
-  const { canteenInfo } = useApp();
+  const { canteenInfo, loading } = useApp();
+
+  if (loading || !canteenInfo) {
+    return (
+      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="animate-pulse">
+            <div className="h-8 bg-blue-500 rounded w-64 mb-2"></div>
+            <div className="h-4 bg-blue-500 rounded w-48"></div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">

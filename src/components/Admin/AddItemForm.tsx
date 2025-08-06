@@ -33,7 +33,8 @@ const AddItemForm: React.FC<AddItemFormProps> = ({ isOpen, onClose }) => {
       price: parseFloat(price),
       category,
       image: customImage || image,
-      available: false
+      available: false,
+      addedAt: new Date().toISOString()
     });
 
     // Reset form

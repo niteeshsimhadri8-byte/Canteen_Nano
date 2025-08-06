@@ -3,7 +3,20 @@ import { Phone, MessageSquare } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 const Footer: React.FC = () => {
-  const { canteenInfo } = useApp();
+  const { canteenInfo, loading } = useApp();
+
+  if (loading || !canteenInfo) {
+    return (
+      <footer className="bg-gray-800 text-white py-8 mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="animate-pulse">
+            <div className="h-4 bg-gray-600 rounded w-48 mb-2"></div>
+            <div className="h-4 bg-gray-600 rounded w-32"></div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="bg-gray-800 text-white py-8 mt-12">
