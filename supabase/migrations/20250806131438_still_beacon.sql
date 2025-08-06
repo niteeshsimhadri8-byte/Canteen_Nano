@@ -116,7 +116,7 @@ CREATE POLICY "Authenticated users can view admins"
 
 -- Insert initial data
 INSERT INTO canteen_info (name, proprietor, contact, queries) VALUES
-('JNTUK Student Canteen', 'Hari Maruthi', '+91-9491066383', '+91-7075866383');
+('JNTU K Student Canteen', 'Mr. Rajesh Kumar', '+91-9876543210', '+91-9876543211');
 
 -- Insert default admins (password: admin123 and manager123 - hashed)
 INSERT INTO admins (username, password_hash, name) VALUES
