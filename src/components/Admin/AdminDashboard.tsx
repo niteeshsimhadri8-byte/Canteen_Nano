@@ -67,8 +67,8 @@ const AdminDashboard: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
-              <p className="text-gray-600">Welcome, {currentAdmin?.name}</p>
+              <h1 className="text-2xl font-bold text-gray-800">🍽️ Admin Dashboard</h1>
+              <p className="text-gray-600">Welcome, {currentAdmin?.name} • JNTU K Canteen</p>
             </div>
             <div className="flex items-center space-x-4">
               <Link
@@ -135,10 +135,10 @@ const AdminDashboard: React.FC = () => {
 
         {/* Real-time Status */}
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8">
-          <div className="flex items-center text-blue-800">
+          <div className="flex items-center text-green-800">
             <Clock className="h-5 w-5 mr-2" />
-            <span className="text-sm">
-              Real-time database connection active - changes sync instantly
+            <span className="text-sm font-medium">
+              🔄 Real-time database connection active - changes sync instantly across all devices
             </span>
           </div>
         </div>
@@ -152,10 +152,10 @@ const AdminDashboard: React.FC = () => {
         {/* Menu Items */}
         <div className="bg-white rounded-lg shadow-sm p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-6">
-            Menu Items Management
+            📋 Menu Items Management
           </h2>
           <p className="text-gray-600 mb-6">
-            Click on items to toggle their availability. Green items are currently available to customers.
+            🎯 <strong>Push-Tap Selection:</strong> Click on items to toggle their availability. Green items are currently available to students.
           </p>
           
           <div className="space-y-8">

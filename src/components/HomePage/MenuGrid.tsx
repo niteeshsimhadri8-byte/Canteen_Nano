@@ -24,7 +24,7 @@ const MenuGrid: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-center py-12">
           <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-          <span className="ml-2 text-gray-600">Loading menu...</span>
+          <span className="ml-2 text-gray-600">Loading fresh menu...</span>
         </div>
       </main>
     );
@@ -46,18 +46,18 @@ const MenuGrid: React.FC = () => {
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Available Menu</h2>
-        <div className="flex items-center justify-center text-sm text-gray-600 bg-blue-50 rounded-lg px-4 py-2 inline-flex">
-          <Clock className="h-4 w-4 mr-2" />
-          Real-time updates from database
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">🍽️ Available Menu Today</h2>
+        <div className="flex items-center justify-center text-sm text-gray-600 bg-green-50 rounded-lg px-4 py-2 inline-flex border border-green-200">
+          <Clock className="h-4 w-4 mr-2 text-green-600" />
+          <span className="text-green-700 font-medium">Real-time updates • Fresh & Hot</span>
         </div>
       </div>
 
       {availableItems.length === 0 ? (
         <div className="text-center py-12">
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
-            <h3 className="text-xl font-semibold text-yellow-800 mb-2">No Items Available</h3>
-            <p className="text-yellow-600">Please check back later for menu updates.</p>
+            <h3 className="text-xl font-semibold text-yellow-800 mb-2">🍳 Kitchen is Preparing</h3>
+            <p className="text-yellow-600">Fresh meals are being prepared. Please check back in a few minutes!</p>
           </div>
         </div>
       ) : (

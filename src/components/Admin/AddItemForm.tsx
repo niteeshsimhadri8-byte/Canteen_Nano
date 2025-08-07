@@ -21,7 +21,8 @@ const AddItemForm: React.FC<AddItemFormProps> = ({ isOpen, onClose }) => {
     'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=400',
     'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=400',
     'https://images.pexels.com/photos/1638280/pexels-photo-1638280.jpeg?auto=compress&cs=tinysrgb&w=400',
-    'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400'
+    'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400',
+    'https://images.pexels.com/photos/14477465/pexels-photo-14477465.jpeg?auto=compress&cs=tinysrgb&w=400'
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -53,7 +54,7 @@ const AddItemForm: React.FC<AddItemFormProps> = ({ isOpen, onClose }) => {
       <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-800">Add New Menu Item</h3>
+            <h3 className="text-lg font-semibold text-gray-800">🍽️ Add New Menu Item</h3>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700"
@@ -72,7 +73,7 @@ const AddItemForm: React.FC<AddItemFormProps> = ({ isOpen, onClose }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter item name"
+                placeholder="Enter delicious item name"
                 required
               />
             </div>
@@ -134,7 +135,7 @@ const AddItemForm: React.FC<AddItemFormProps> = ({ isOpen, onClose }) => {
                   value={customImage}
                   onChange={(e) => setCustomImage(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://example.com/delicious-food.jpg"
                 />
               </div>
             </div>

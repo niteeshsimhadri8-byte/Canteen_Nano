@@ -45,6 +45,9 @@ const Footer: React.FC = () => {
           <p className="text-gray-400 text-sm">
             © 2024 JNTU K Student Canteen. All rights reserved.
           </p>
+          <p className="text-gray-500 text-xs mt-2">
+            🍽️ Fresh Meals • Real-time Updates • Student-Friendly Service
+          </p>
         </div>
       </div>
     </footer>

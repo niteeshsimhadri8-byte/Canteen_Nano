@@ -33,7 +33,7 @@ const LoginForm: React.FC = () => {
             <Lock className="mx-auto h-12 w-12 text-blue-600" />
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Admin Login</h2>
             <p className="mt-2 text-sm text-gray-600">
-              Sign in to manage canteen menu
+              Sign in to manage JNTU K canteen menu
             </p>
           </div>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -96,7 +96,7 @@ const LoginForm: React.FC = () => {
             </div>
 
             <div className="mt-6 p-4 bg-gray-50 rounded-md">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">Demo Credentials:</h3>
+              <h3 className="text-sm font-medium text-gray-700 mb-2">🔑 Demo Credentials:</h3>
               <div className="text-xs text-gray-600 space-y-1">
                 <p><strong>Admin:</strong> admin / admin123</p>
                 <p><strong>Manager:</strong> manager / manager123</p>
